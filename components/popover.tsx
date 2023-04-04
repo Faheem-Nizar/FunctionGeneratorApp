@@ -79,7 +79,7 @@ const FrequencyDutyCycleSelector = (data:any) => {
     <Container className={styles.container}>
       <div>
         <Typography variant="h4" gutterBottom>
-          Waveform Featureg Selector
+          Waveform Feature Selector
         </Typography>
         <br/>
         <br/>

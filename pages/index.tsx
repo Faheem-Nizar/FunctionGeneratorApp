@@ -70,18 +70,18 @@ export default function Home() {
 
       <div>
         <div className={styles.divider}>
-          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(1)}>
+          <Button style={{margin: "30px"}} variant="contained" className={styles.mainBox} onClick={() => openPopover(1)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Sine</div> 
           </Button>
-          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(2)}>
+          <Button style={{margin: "30px"}} variant="contained" className={styles.mainBox} onClick={() => openPopover(2)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Square</div> 
           </Button>
         </div>
         <div className={styles.divider}>
-          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(3)}>
+          <Button style={{margin: "30px"}} variant="contained" className={styles.mainBox} onClick={() => openPopover(3)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Ramp</div> 
           </Button>
-          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(4)}>
+          <Button style={{margin: "30px"}} variant="contained" className={styles.mainBox} onClick={() => openPopover(4)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Triangular</div> 
           </Button>
         </div>
