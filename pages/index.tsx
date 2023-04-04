@@ -70,20 +70,28 @@ export default function Home() {
 
       <div>
         <div className={styles.divider}>
-          <Button style={{margin: "30px"}} variant="contained" className={styles.mainBox} onClick={() => openPopover(1)}>
+          <div style={{margin: "30px"}}>
+          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(1)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Sine</div> 
           </Button>
-          <Button style={{margin: "30px"}} variant="contained" className={styles.mainBox} onClick={() => openPopover(2)}>
+          </div>
+          <div style={{margin: "30px"}}>
+          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(2)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Square</div> 
           </Button>
+          </div>
         </div>
         <div className={styles.divider}>
-          <Button style={{margin: "30px"}} variant="contained" className={styles.mainBox} onClick={() => openPopover(3)}>
+        <div style={{margin: "30px"}}>
+          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(3)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Ramp</div> 
           </Button>
-          <Button style={{margin: "30px"}} variant="contained" className={styles.mainBox} onClick={() => openPopover(4)}>
+          </div>
+          <div style={{margin: "30px"}}>
+          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(4)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Triangular</div> 
           </Button>
+          </div>
         </div>
       </div>
       <div id="bottommost" 
