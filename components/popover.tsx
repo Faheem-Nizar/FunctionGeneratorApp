@@ -56,11 +56,14 @@ const FrequencyDutyCycleSelector = (data:any) => {
     let siginfo = '';
     let freqNum = frequencyUnit*frequencyValue;
     if(freqNum.toString().length > 7) {
-        alert("The frequency must be lower than 9 MHz!");
+        alert("The frequency must be lower than 200 kHz!");
         return;
     }
     let freq = formatNumber(freqNum, 7)
     let amp = formatNumber(Math.floor(amplitude*1000), 4)
+    if(data.typeWave === 2) {
+      setDutyCycleValue(100-dutyCycleValue);
+    }
     let dty = formatNumber(dutyCycleValue, 3);
     siginfo = data.typeWave + amp + dty + freq;
     console.log(freq)
@@ -78,11 +81,36 @@ const FrequencyDutyCycleSelector = (data:any) => {
   return (
     <Container className={styles.container}>
       <div>
-        <Typography variant="h4" gutterBottom>
-          Waveform Feature Selector
-        </Typography>
+        {
+          (data.typeWave === 1) &&
+          <Typography variant="h4" gutterBottom>
+            Sine Wave
+          </Typography>
+        }
+        {
+          (data.typeWave === 2) &&
+          <Typography variant="h4" gutterBottom>
+            Square Wave
+          </Typography>
+        }
+        {
+          (data.typeWave === 3) &&
+          <Typography variant="h4" gutterBottom>
+            Triangular Wave
+          </Typography>
+        }
+        {
+          (data.typeWave === 4) &&
+          <Typography variant="h4" gutterBottom>
+            Ramp Wave
+          </Typography>
+        }
+        
         <br/>
         <br/>
+        {
+          (data.typeWave === 1 || data.typeWave === 2) &&
+          <div>
         <Typography id="duty-cycle-slider" gutterBottom>
             Amplitude (V)
           </Typography>
@@ -107,7 +135,8 @@ const FrequencyDutyCycleSelector = (data:any) => {
           </div>
           <br />
           <br />
-
+          </div>
+        }
           <Typography id="duty-cycle-slider" gutterBottom>
             Frequency (Hz)
           </Typography>
@@ -128,28 +157,51 @@ const FrequencyDutyCycleSelector = (data:any) => {
         >
           <MenuItem value={1}>Hz</MenuItem>
           <MenuItem value={1000}>kHz</MenuItem>
-          <MenuItem value={1000000}>MHz</MenuItem>
+          {/* <MenuItem value={1000000}>MHz</MenuItem> */}
         </Select>
       </FormControl>
 
 
           <br />
           <br />
-          <Typography id="duty-cycle-slider" gutterBottom>
+          
+          {
+            (data.typeWave === 2) &&
+          <div>
+            <Typography id="duty-cycle-slider" gutterBottom>
             Duty Cycle (%)
           </Typography>
-          <div style={{display: 'flex'}}>
-            <Typography style={{marginRight: "10px"}} id="duty-cycle-slider" gutterBottom>
-                0%
-            </Typography>
-            <Slider defaultValue={50} onChange={setValue} aria-label="Default" valueLabelDisplay="auto" />
-            <Typography style={{marginLeft: "10px"}} id="duty-cycle-slider" gutterBottom>
-                100%
-            </Typography>
+            <div style={{display: 'flex'}}>
+              <Typography style={{marginRight: "10px"}} id="duty-cycle-slider" gutterBottom>
+                  0%
+              </Typography>
+              <Slider defaultValue={50} onChange={setValue} aria-label="Default" valueLabelDisplay="auto" />
+              <Typography style={{marginLeft: "10px"}} id="duty-cycle-slider" gutterBottom>
+                  100%
+              </Typography>
+            </div>
+            
+            <br />
+            <br />
           </div>
-          
-          <br />
-          <br />
+          }
+          {
+            (data.typeWave === 4) &&
+          <div>
+            <div style={{display: 'flex'}}>
+              <Typography style={{marginRight: "10px"}} id="duty-cycle-slider" gutterBottom>
+                  Ramp Down
+              </Typography>
+              <Slider defaultValue={100} step={100} onChange={setValue} aria-label="Default" valueLabelDisplay="auto" />
+              <Typography style={{marginLeft: "10px"}} id="duty-cycle-slider" gutterBottom>
+                  Ramp Up
+              </Typography>
+            </div>
+            
+            <br />
+            <br />
+          </div>
+          }
           <div style={{display: 'flex', justifyContent:'center'}}>
             <Button variant='contained'
             onClick={outputWaveform}>

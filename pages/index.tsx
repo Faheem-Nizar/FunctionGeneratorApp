@@ -82,16 +82,16 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.divider}>
-        <div style={{margin: "30px"}}>
+        {/* <div style={{margin: "30px"}}>
           <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(3)}>
-            <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Ramp</div> 
-          </Button>
-          </div>
-          <div style={{margin: "30px"}}>
-          <Button variant="contained" className={styles.mainBox} onClick={() => openPopover(4)}>
             <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Triangular</div> 
           </Button>
-          </div>
+          </div> */}
+          {/* <div style={{margin: "30px"}}> */}
+          <Button variant="contained" style={{margin: "30px"}} className={styles.mainBox} onClick={() => openPopover(4)}>
+            <div style={{fontSize: "40px", fontFamily: "sans-serif"}}>Ramp</div> 
+          </Button>
+          {/* </div> */}
         </div>
       </div>
       <div id="bottommost" 
